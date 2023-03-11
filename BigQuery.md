@@ -93,7 +93,7 @@ SELECT word, SUM(word_count) AS count FROM `bigquery-public-data`.samples.shakes
  
  
 
-Accessing BigQuery Data through the [] command-line tool  
+## Accessing BigQuery Data through the [] command-line tool  
 
  
 
@@ -195,7 +195,7 @@ Now run your query again. You should get a result similar to the one below.
 ![](/assets/images/bq_sql_output_bd.png)
 
  
-3. Converting SQL queries to parameterized queries 
+## Converting SQL queries to parameterized queries 
 
  
 
@@ -265,7 +265,7 @@ Formulate the SQL statement so that when parameters are missing, it finds a work
 
  
 
-(Optional) 4. Upload and query sample event data to BigQuery 
+## (Optional) 4. Upload and query sample event data to BigQuery 
 
  
 
