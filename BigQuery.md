@@ -192,4 +192,4 @@ bq query --use_legacy_sql=false \
  
 Now run your query again. You should get a result similar to the one below. 
 
-
+![](/assets/images/bq_sql_output_bd.png)
