@@ -35,4 +35,4 @@ Here's how [enable access so you can finish the course]  to get started.
 
 Open [fresh in new window] the BigQuery console with https://console.cloud.google.com/bigquery 
 
-!(/assets/BigQuery_Console.png)
+![](/assets/images/BigQuery_Console_bd.png)
