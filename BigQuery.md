@@ -36,3 +36,119 @@ Here's how [enable access so you can finish the course]  to get started.
 Open [fresh in new window] the BigQuery console with https://console.cloud.google.com/bigquery 
 
 ![](/assets/images/BigQuery_Console_bd.png)
+
+Click View Dataset 
+
+If prompted again, click View Dataset again. 
+
+The 'bigquery-public-data' dataset appears in the Explorer pane of the console. 
+
+![](/assets/images/BQ_Explorer_bd.png)
+
+ 
+
+ 
+
+Expand bigquery-public-data.  Then scroll down to and expand the census_bureau_usa grouping. 
+ 
+Shown in the Explorer pane are sample datasets that you can practice upon, each dataset contains one or more tables. 
+ 
+Click the population_by_zip_2010 table to open it in the console workspace.  
+
+ 
+
+Here you'll see the list of fields that make up the table.  Take a moment to read the field names and definitions. Let's now run some queries on it.  
+
+ 
+
+Above the fields list, click Query > In a new tab.  The workspace opens with a simple SELECT statement. This select clause is shown in error, because you need to supply the fields to retrieve. 
+ 
+Enter a '*' between the SELECT and FROM clauses to return all fields, making no other changes to limit the result set to 1000 
+
+SELECT * FROM `bigquery-public-data.census_bureau_usa.population_by_zip_2010` LIMIT 1000 
+
+ 
+
+Click the RUN command. The Query results should appear in the a panel below the statement. 
+ 
+
+Now try out the following statements: 
+
+Modify the statement to show the data for you .zip code 
+
+SELECT sum(population) FROM `bigquery-public-data.census_bureau_usa.population_by_zip_2010` WHERE zipcode = '12054' LIMIT 1000 
+
+ 
+
+SELECT sum(population) FROM `bigquery-public-data.census_bureau_usa.population_by_zip_2010` WHERE zipcode = '12054' LIMIT 1000 
+
+ 
+ 
+Run a simple query in BigQuery to retrieve Shakespeare data  
+
+SELECT word, SUM(word_count) AS count FROM `bigquery-public-data`.samples.shakespeare WHERE word LIKE '%love%' GROUP BY word 
+
+ 
+
+ 
+ 
+
+Accessing BigQuery Data through the [] command-line tool  
+
+ 
+
+Text: BigQuery is more than just sandbox (cloud console), an interactive workspace where you can query data, import, analyze, build data. BigQuery serves a data repository that can be accessed  by other cloud services and by applications regardless of how they are deployed and   
+  
+You can query the tables and data housed in BigQuery through the sandbox  
+
+Through the BigQuery API, available for use in Go, Java, Node.js, PHP, Python C# Ruby   
+
+Through Python  
+
+or using scripts in the CloudShell  
+  
+
+Accessing BigQuery in programming affords us more flexibility in constructing our queries, using variables and parameters, or any other programming constructs (e.g. loops) you require.  
+
+ 
+
+Fortunately, Google Cloud makes connecting to BigQuery [and scripting] externally, quite easy by providing [  Cloudshell ] and use bash shell scripts 
+
+to execute SQL queries, to familiarize you with building tools 
+
+ 
+
+ 
+
+Lab: Access BigQuery Data through the [] command-line tool  
+
+ 
+
+In a separate browser tab, use the following URL to open the Cloudshell editor where you'll write your script: https://console.cloud.google.com/bigquery?cloudshell=true 
+
+ 
+
+Give it a moment as Cloud Shell provisions a Compute Engine virtual machine running a Debian-based Linux operating system for your temporary use.  
+
+ 
+
+The Cloud Shell terminal should open in a panel below.  
+ 
+
+[After the command line appears,  
+But let's make this exercise even easier by using the friendlier  by opening the Cloudshell editor. 
+ 
+Just about the terminal, to the right,  Click Open Editor and give it a moment to appear. 
+To launch the editor, click  Open Editor on the toolbar of the Cloud Shell window. 
+
+ 
+Open Home Workspace 
+
+Activate the shell 
+
+ 
+Now it's time to execute our queries using a script 
+ 
+To do this, all we need to do is to get the BigData Query written inside the script and execute our 
+
+script through the Google Cloud Shell Console, which will help us to connect to the BigQuery service as 
