@@ -4,7 +4,7 @@
 
 BigQuery is Google Cloud's enterprise data warehouse for managing and analyzing data. It is built upon a serverless architecture and requires no infrastructure management. BigQuery lets you use standard SQL queries to access and manage data.  
 
-From an observability perspective, data warehouses used by applications should be monitored for performance and availability, just like any other service. BigQuery supports monitoring by providing built-in performance metrics around the management and analysis operations you perform on your data. 
+From an observability perspective, data warehouses should be monitored for performance and availability, just like any other service your application uses. BigQuery supports monitoring by providing built-in performance metrics around the management and analysis operations you perform on your data. 
 
 BigQuery can also be used to store observability data, such as event logs. [read to gain insight]  [Unique analyze 'in place' feature].  
 
