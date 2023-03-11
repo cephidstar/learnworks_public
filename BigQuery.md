@@ -193,3 +193,119 @@ bq query --use_legacy_sql=false \
 Now run your query again. You should get a result similar to the one below. 
 
 ![](/assets/images/bq_sql_output_bd.png)
+
+ 
+3. Converting SQL queries to parameterized queries 
+
+ 
+
+(Text) Parameterized SQL 
+
+ 
+
+[The power and importance of parameterized queries] 
+
+ 
+
+Suppose you wanted to substitute the literal '%love%'  in the command with a parameter that you could supply each time you run the query, say in a pop-up dialogue. In this form, the type of SQL is called dynamic SQL. 
+ 
+In some programming contexts, the ? symbol can be used as a placeholder for an SQL parameter, however in BigQuery UI this does not work. 
+
+ 
+
+Although you can create a dynamic SQL statement in BigQuery, it's quite complex.  
+ 
+ 
+
+Lab: Convert your SQL queries to parameterized queries, You will boost the power of your queries to dynamically modify query targets. 
+
+ 
+
+Now let's modify our script to allow you to parameterize your SQL statement and 
+
+receive the values for the parameter from the command line, much as you would for 
+
+any value you'd like to pass into a script.   
+ 
+Then as in this case, you could simply execute the script by name on the command line while introducing the searched for string as the 1st parameter, like this. 
+ 
+Now edit your script to look like this: 
+echo $1 
+
+zipcode=$1 
+
+bq query --use_legacy_sql=false \ 
+
+ 'SELECT sum(population) FROM `bigquery-public-data.census_bureau_usa.population_by_zip_2010` WHERE zipcode = "'$zipcode'"' 
+
+ 
+
+Run it with ./sample.sh 12054 
+ 
+Run it with any zipcode you choose. 
+ 
+Just for fun, create another script named shakespeare.sh with the following:  [what it does] 
+echo $1 
+
+search_string=$1 
+
+bq query --use_legacy_sql=false \ 
+
+ 'SELECT word, SUM(word_count) AS count FROM `bigquery-public-data`.samples.shakespeare WHERE word LIKE "%'$search_string'%" GROUP BY word' 
+
+ 
+
+[What's the point] [what could you do next?] 
+
+[Stuf to try:  Write script-driven BigQuery SQL that accepts multiple parameters, but also elegantly  
+
+operates when none or some of the parameters are supplied on the command line (or through a call). 
+
+Formulate the SQL statement so that when parameters are missing, it finds a workable default behavior. 
+
+ 
+
+(Optional) 4. Upload and query sample event data to BigQuery 
+
+ 
+
+(Optional Lab) Upload and query sample event data to BigQuery and execute SQL commands  
+to simulate how BigQuery might be used to manage and analyze observability event data stored in the cloud.  
+
+ 
+
+Now lets apply our script to some event data 
+
+ 
+
+upload the table 
+
+ 
+
+Type the SQL into the sandbox 
+
+ 
+
+Create a new script with the same SQL 
+
+ 
+
+Parameterize it 
+
+ 
+
+[Review of what we did and how we met the objectives] 
+
+ 
+
+[Things for you to try] 
+
+ 
+
+[References]  
+
+ 
+
+ 
+
+Summary 
