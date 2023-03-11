@@ -154,3 +154,42 @@ To do this, all we need to do is to get the BigData Query written inside the scr
 script through the Google Cloud Shell Console, which will help us to connect to the BigQuery service as 
 
 ![](/assets/images/bq_query_new_file_bd.png)
+
+Create a script: and give it the name myfirstbqscript.sh 
+
+ 
+
+Copy the following into the script (in two lines) 
+
+ 
+
+bq query --use_legacy_sql=false \ 
+
+ 'SELECT sum(population) FROM `bigquery-public-data.census_bureau_usa.population_by_zip_2010` WHERE zipcode = "12054"' 
+
+ 
+
+! Careful! 
+
+ 
+
+Run it with ./sample.sh 
+ 
+
+What happened when you ran it? 
+chmod +x 
+try again 
+ 
+
+If prompted to authorize, click authorize. 
+ 
+If you still get an error, make sure the backslash in the first line is recognized. If it is red, 
+
+delete it and start typing from the last token so that the line looks like this. 
+ 
+
+bq query --use_legacy_sql=false \ 
+ 
+Now run your query again. You should get a result similar to the one below. 
+
+
