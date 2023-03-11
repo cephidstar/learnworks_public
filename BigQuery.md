@@ -152,3 +152,5 @@ Now it's time to execute our queries using a script
 To do this, all we need to do is to get the BigData Query written inside the script and execute our 
 
 script through the Google Cloud Shell Console, which will help us to connect to the BigQuery service as 
+
+![](/assets/images/bq_query_new_file_bd.png)
