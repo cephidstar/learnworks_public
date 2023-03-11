@@ -24,7 +24,7 @@ At the end of this course, you'll be ready experiement on your own, using the ma
 
 [Text:]
 
-Lab: Connect to the BigQuery Console and execute SQL commands on preloaded sample table data, using the BigQuery sandbox. 
+### Lab: Connect to the BigQuery Console and execute SQL commands on preloaded sample table data, using the BigQuery sandbox. 
 
  
 
@@ -120,7 +120,7 @@ to execute SQL queries, to familiarize you with building tools
 
  
 
-Lab: Access BigQuery Data through the [] command-line tool  
+### Lab: Access BigQuery Data through the [] command-line tool  
 
  
 
@@ -217,7 +217,7 @@ Although you can create a dynamic SQL statement in BigQuery, it's quite complex.
  
  
 
-Lab: Convert your SQL queries to parameterized queries, You will boost the power of your queries to dynamically modify query targets. 
+### Lab: Convert your SQL queries to parameterized queries, You will boost the power of your queries to dynamically modify query targets. 
 
  
 
