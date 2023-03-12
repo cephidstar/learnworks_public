@@ -85,18 +85,19 @@ Thankfully, Google Cloud makes it easy to connect to BigQuery externally and exp
 
 ### Lab: Access BigQuery Data Through Google Cloud Shell
 
-Accessing Google Cloud Shell in a separate browser tab, using the following URL https://console.cloud.google.com/bigquery?cloudshell=true .
+Step1. Access Google Cloud Shell in a separate browser tab, using the following URL https://console.cloud.google.com/bigquery?cloudshell=true .
 
-Wait a few moments as Cloud Shell provisions a Compute Engine virtual machine running a Debian-based Linux operating system for your temporary use.  
-The Cloud Shell terminal should open in a panel at the bottom of the screen:
+Wait a few moments as Cloud Shell provisions a Compute Engine virtual machine running a Debian-based Linux operating system for your temporary use. The Cloud Shell terminal should open in a panel at the bottom of the screen:
 
 ![](/assets/images/Cloudshell_Terminal.png)
  
-But instead of creating, editing and running scripts solely on this bash shell command line, let's make this exercise even easier by using the Google Cloudshell Editor. 
+Step2. But instead of creating, editing and running scripts solely on this bash shell command line, let's make this exercise even easier by using the Google Cloudshell Editor. 
  
-Just above the terminal, to the right,  Click **Open Editor** and give it a moment to appear. If prompted, open the Home Workspace, and again, if prompted Activate the shell.
+Just above the terminal, to the right,  Click ![](/assets/images/open_editor.png) and give it a moment to appear. If prompted, open the Home Workspace, and again, if prompted Activate the shell.
 
-Then add the terminal back in by clicking terminal.
+Step3. Now add the terminal back into the workspace by clicking **Open Terminal** above the editor.
+
+![](/assets/images/Cloudshell_Terminal.png)
 
 Now it's time to execute our queries using a script. To do this, all we need to do is to get the BigData Query written inside the script and execute our 
 script through the Google Cloud Shell Console, which will help us to connect to the BigQuery service as 
