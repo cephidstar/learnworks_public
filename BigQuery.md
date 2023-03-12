@@ -30,6 +30,8 @@ Step 2. Click View Dataset. If prompted again, click View Dataset again.
 
 The 'bigquery-public-data' dataset appears in the Explorer pane of the console. 
 
+![](/assets/images/BigQuery_Public_dataset.png)
+
 Step 3. Expand the bigquery-public-data dataset. Shown in the Explorer pane are sample table groups that you can practice upon.
 Each dataset contains one or more tables. 
 
@@ -40,10 +42,9 @@ Step 4. Scroll down to and expand the **census_bureau_usa** table group.
 Step 5. Click the **population_by_zip_2010** table to open it in the console workspace.  Here you'll see the list of fields that comprise the table.  
 Take a moment to read the field names and definitions. Let's now run some queries on it.  
 
-Step 6. Above the fields list, click **Query** and select **In a new tab**.  The workspace opens with a simple, incomplete SQL SELECT statement. 
-The SELECT clause is shown in error, because you need to supply the fields to retrieve. 
+Step 6. Just above the fields list, open the ![](/assets/images/Query_dropdown.png) menu and select **In a new tab**.  The workspace opens with a simple, incomplete SQL SELECT statement. The SELECT clause is shown in error, because you need to supply the fields to retrieve. 
  
-Enter an asterisk * between the SELECT and FROM clauses to return all fields, making no other changes to the statement, as shown.
+Enter an asterisk * between the SELECT and FROM clauses to return all fields, making no other changes to the statement. It should look as shown.
 
 SELECT * FROM `bigquery-public-data.census_bureau_usa.population_by_zip_2010` LIMIT 1000 
 
