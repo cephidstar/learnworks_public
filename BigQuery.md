@@ -2,22 +2,22 @@
 
 ## Introduction
 
-BigQuery is Google Cloud's enterprise data warehouse for managing and analyzing data. Built upon a serverless architecture, BigQuery requires no infrastructure management. BigQuery data is stored in table/column format and is accessed and managed though standard SQL by which there are no restrictions against the full range of language capabilities, including updating data and creating or deleting tables. 
+BigQuery is Google Cloud's enterprise data warehouse, built upon a serverless architecture. BigQuery data is stored in table/column format and is accessed and managed through standard SQL. {How is the SQL executed}.
 
-From an observability perspective, BigQuery supports monitoring by providing built-in performance metrics around the management and analysis operations you perform on your data.
+From an observability perspective, BigQuery is particularly suited for storing and analyzing observability data, such as event data produced by performance monitoring applications. BigQuery ishighly scalable and it includes powerful features such as a high bandwidth data analysis engine and machine learning. BigQuery also supports monitoring its own performance by generating and storing metrics around the operation executed upon the data it houses. These metrics are available for creating charts and alerts.
 
-BigQuery is particularly suited for storing and processing observability data, such as event data produced by application performance management systems. BigQuery is a highly scalable and features a data analysis engine that can handle terabytes of data in seconds and petabytes of data in minutes. It is flexible in terms of storage and analysis options, allowing users to store and analyze data within BigQuery or assess it where it already exists. It provides provides powerful tools like BigQuery ML and BI Engine for analyzing and understanding data.
-
-In this course, you'll become familiar with BigQuery through hands-on practice, by executing SQL queries in the BigQuery
-Sandbox and though the BigQuery command-line tool.
+In this course, you'll become familiar with BigQuery through hands-on practice, by executing SQL queries in both the BigQuery
+Sandbox and through the BigQuery command-line tool.
  
 At the end of this course, you'll be ready experiment on your own, and with programming, and you'll be prepared to using the many resources available ...
-
 
 ## Connecting to the BigQuery Console 
 
 The BigQuery sandbox is available to anyone with a Google Account at no cost. 
 Here's how [enable access so you can finish the course]  to get started. 
+
+If you have a google account with a payment method
+If you don't
 
 ### Lab: Connect to the BigQuery Console and execute SQL commands on preloaded sample table data, using the BigQuery sandbox. 
 
@@ -55,11 +55,12 @@ and overwrite statements into the query tab.
 
 SELECT sum(population) FROM `bigquery-public-data.census_bureau_usa.population_by_zip_2010` WHERE zipcode = '12054'
 
-Try is again with your hometown zipcode.
+Try this query again with your hometown zipcode.
 
 Step 9. Run this query in BigQuery to retrieve Shakespeare data from the **samples.shakespeare** table, which contains the text
 of the entire works of Shakespeare.
 
+The following query counts the number of distinct phraases in Shakespeare's work where the supplied string is found.
 SELECT word, SUM(word_count) AS count FROM `bigquery-public-data`.samples.shakespeare WHERE word LIKE '%love%' GROUP BY word 
 
 
@@ -100,6 +101,8 @@ easier by using the Google Cloudshell fulscreen editor.
 Just above the terminal, to the right,  Click **Open Editor** and give it a moment to appear. 
 If prompted, Open the Home Workspace, and again, if prompted Activate the shell.
 
+Then add the terminal back in by clicking terminal.
+
 Now it's time to execute our queries using a script. To do this, all we need to do is to get the BigData Query written inside the script and execute our 
 script through the Google Cloud Shell Console, which will help us to connect to the BigQuery service as 
 
@@ -136,7 +139,7 @@ You should get a result similar to the one below.
  
 ## Converting SQL Queries to Parameterized Queries 
 
-When executing SQL from code, it's impractical to have to edit an SQL statement each time you want to produce different results.  
+When executing SQL from code, it's impractical to have to edit an SQL statement each time you want to produce slightly different results.  
 
 Using the zipcode example from the previous lab:
 
@@ -146,7 +149,7 @@ Using the zipcode example from the previous lab:
 
 Suppose you wanted to substitute the literal "12054" in the command with a parameter for which you could supply a value on the command line each time you ran the query script.
 
-Parameterizing SQL statements is central to the technique of writing what is called dynamic SQL, which builds SQL statements dynamically at runtime.
+Parameterizing SQL statements is central to the technique of writing dynamic SQL, which builds SQL statements dynamically at runtime.
 Dynamic SQL is commonly used in SQL stored procedures.
  
 ### Lab: Convert your SQL query into a parameterized query.
@@ -184,7 +187,7 @@ bq query --use_legacy_sql=false \
 
 [What's the point] [what could you do next?] 
 
-[Stuff to try:  Write script-driven BigQuery SQL that accepts multiple parameters, but also elegantly  
+Stuff to try:  Write script-driven BigQuery SQL that accepts multiple parameters, but also elegantly  
 
 operates when none or some of the parameters are supplied on the command line (or through a call). 
 
@@ -194,7 +197,7 @@ Formulate the SQL statement so that when parameters are missing, it finds a work
 
 ## (Optional) 4. Upload and query sample event data to BigQuery 
 
- 
+BigQuery is particularly suited for storing and analyzing observability data
 
 (Optional Lab) Upload and query sample event data to BigQuery and execute SQL commands  
 to simulate how BigQuery might be used to manage and analyze observability event data stored in the cloud.  
