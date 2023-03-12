@@ -2,22 +2,25 @@
 
 ## Introduction
 
-BigQuery is Google Cloud's enterprise data warehouse, built upon a serverless architecture. BigQuery data is stored in table/column format and is accessed and managed through standard SQL. {How is the SQL executed}.
+BigQuery is Google Cloud's enterprise data warehouse, built upon a serverless architecture. BigQuery data is stored in table/column format and is accessed and managed through standard SQL, which can be executed through API client libraries built for several common languages.
 
-From an observability perspective, BigQuery is particularly suited for storing and analyzing observability data, such as event data produced by performance monitoring applications. BigQuery ishighly scalable and it includes powerful features such as a high bandwidth data analysis engine and machine learning. BigQuery also supports monitoring its own performance by generating and storing metrics around the operation executed upon the data it houses. These metrics are available for creating charts and alerts.
+From an observability perspective, BigQuery is particularly suited for storing and analyzing observability data, such as event data produced by performance monitoring applications. BigQuery is highly scalable and it includes powerful features such as a high bandwidth data analysis engine, supported by machine learning. BigQuery also supports the monitoring of its own performance, by computing and storing metrics around the operations executed upon the data it houses. 
 
-In this course, you'll become familiar with BigQuery through hands-on practice, by executing SQL queries in both the BigQuery
-Sandbox and through the BigQuery command-line tool.
+In this course, you'll become familiar with BigQuery through hands-on practice, by executing SQL queries in both the BigQuery Sandbox and through the BigQuery command-line tool.
  
-At the end of this course, you'll be ready experiment on your own, and with programming, and you'll be prepared to using the many resources available ...
+By the the end of this course, you'll have a working knowledge of BigQuery, your BigQuery Sandbox and Linux command line tool will be up and running, and you'll be equipped to continue experimenting with SQL on your own, using the many BigQuery resources that Google and other practitioners provide.
 
 ## Connecting to the BigQuery Console 
 
-The BigQuery sandbox is available to anyone with a Google Account at no cost. 
-Here's how [enable access so you can finish the course]  to get started. 
+The BigQuery sandbox is available to anyone with a Google Account at no cost. However Google requires
+you to have set up a payment method, for at minimum, verification purposes.
 
-If you have a google account with a payment method
-If you don't
+If you already have a Google account with a payment method defined, the BigQuery setup will consist
+of just a few steps. 
+
+To get started, go to: https://cloud.google.com/bigquery/docs/sandbox
+
+
 
 ### Lab: Connect to the BigQuery Console and execute SQL commands on preloaded sample table data, using the BigQuery sandbox. 
 
