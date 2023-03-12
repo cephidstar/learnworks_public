@@ -10,7 +10,7 @@ In this course, you'll become familiar with BigQuery through hands-on practice, 
  
 By the the end of this course, you'll have a working knowledge of BigQuery, your BigQuery Sandbox and Linux command line tool will be up and running, and you'll be equipped to continue experimenting with SQL on your own, using the many BigQuery resources that Google and other practitioners provide.
 
-## Connecting to the BigQuery Console 
+## Connecting to the BigQuery Sandbox
 
 The BigQuery sandbox is available to anyone with a Google Account at no cost. However Google requires
 you to have set up a payment method, for at minimum, verification purposes.
@@ -18,9 +18,20 @@ you to have set up a payment method, for at minimum, verification purposes.
 If you already have a Google account with a payment method defined, the BigQuery setup will consist
 of just a few steps. Otherwise, they'll be just a few more steps for entering and verifying your information.
 
-To get started, go to: https://cloud.google.com/bigquery
+To get started, go to: https://cloud.google.com/bigquery . If you're already signed up to use BigQuery, then you'll
+be in the right place and you can skip to the lab, just after this section. 
 
+Other wise, click either of the getting started buttons you'll find on the welcome/initialization screen.
 
+![](/assets/images/sign_up_1b.png)
+
+After you've completed the signup steps, you'll be taken to the Google Cloud Console. Scroll to find a link to BigQuery and select it.
+
+![](/assets/images/sign_up_2.png)
+
+When you've arrived at the BigQuery Sandbox below, you're ready to get going!
+
+![](/assets/images/BigQuery_Console_bd.png)
 
 ### Lab: Connect to the BigQuery Console and execute SQL commands on preloaded sample table data, using the BigQuery sandbox. 
 
