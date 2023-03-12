@@ -16,9 +16,9 @@ The BigQuery sandbox is available to anyone with a Google Account at no cost. Ho
 you to have set up a payment method, for at minimum, verification purposes.
 
 If you already have a Google account with a payment method defined, the BigQuery setup will consist
-of just a few steps. 
+of just a few steps. Otherwise, they'll be just a few more steps for entering and verifying your information.
 
-To get started, go to: https://cloud.google.com/bigquery/docs/sandbox
+To get started, go to: https://cloud.google.com/bigquery
 
 
 
