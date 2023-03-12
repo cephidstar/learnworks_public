@@ -145,6 +145,8 @@ If you could substitute the literal "12054" in the command with a parameter, you
  
 ### Lab: Convert your SQL query into a parameterized query.
 
+###Part I###
+
 Modify **myfirstbqscript.sh** to receive the value for the zip code from command line. 
 
 Review: Running your script on the command line with a parameter would look like this:
@@ -158,11 +160,13 @@ For robustness and readability, you could add this line of code as the first lin
 
 ***zipcode=$1***
 
-And instead of ***WHERE zipcode = "12054"'*** you would need to modify your statement as follows:
+And instead of ***WHERE zipcode = "12054"'*** you would need to modify that clause as follows:
 
 ***WHERE zipcode = "'$zipcode'"'*** 
 
- Modify ***./myfirstbqscript.sh*** accordingly and run it with a single zipcode parameter.
+Step x. Modify ***./myfirstbqscript.sh*** accordingly and run it with a single zipcode parameter.
+
+###Part II###
  
 Just for fun, create another script named ***shakespeare.sh***, to run the same SQL statement we ran in the BigQuery Workspace: 
 
