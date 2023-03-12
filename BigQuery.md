@@ -93,11 +93,11 @@ SELECT word, SUM(word_count) AS count FROM `bigquery-public-data`.samples.shakes
  
  
 
-## Accessing BigQuery Data through the [] command-line tool  
+## Accessing BigQuery Data Outside the Sandbox
 
  
 
-Text: BigQuery is more than just sandbox (cloud console), an interactive workspace where you can query data, import, analyze, build data. BigQuery serves a data repository that can be accessed  by other cloud services and by applications regardless of how they are deployed and   
+BigQuery is more than just sandbox (cloud console), an interactive workspace where you can query data, import, analyze, build data. BigQuery serves a data repository that can be accessed  by other cloud services and by applications regardless of how they are deployed and   
   
 You can query the tables and data housed in BigQuery through the sandbox  
 
@@ -105,7 +105,7 @@ Through the BigQuery API, available for use in Go, Java, Node.js, PHP, Python C#
 
 Through Python  
 
-or using scripts in the CloudShell  
+or using scripts in the CloudShell using the bq command-line too.
   
 
 Accessing BigQuery in programming affords us more flexibility in constructing our queries, using variables and parameters, or any other programming constructs (e.g. loops) you require.  
@@ -120,13 +120,14 @@ to execute SQL queries, to familiarize you with building tools
 
  
 
-### Lab: Access BigQuery Data through the [] command-line tool  
+### Lab: Access BigQuery Data through the bq command-line tool  
 
  
 
+ Before you can use the bq command-line tool, you must use the Google Cloud console to create or select a project.
+ 
 In a separate browser tab, use the following URL to open the Cloudshell editor where you'll write your script: https://console.cloud.google.com/bigquery?cloudshell=true 
 
- 
 
 Give it a moment as Cloud Shell provisions a Compute Engine virtual machine running a Debian-based Linux operating system for your temporary use.  
 
@@ -162,11 +163,10 @@ Create a script: and give it the name myfirstbqscript.sh
 Copy the following into the script (in two lines) 
 
  
-
+~~~~
 bq query --use_legacy_sql=false \ 
-
- 'SELECT sum(population) FROM `bigquery-public-data.census_bureau_usa.population_by_zip_2010` WHERE zipcode = "12054"' 
-
+'SELECT sum(population) FROM `bigquery-public-data.census_bureau_usa.population_by_zip_2010` WHERE zipcode = "12054"' 
+~~~~
  
 
 ! Careful! 
