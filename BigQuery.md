@@ -97,7 +97,7 @@ Just above the terminal, to the right,  Click ![](/assets/images/open_editor.png
 
 Step3. Now add the terminal back into the workspace by clicking **Open Terminal** above the editor.
 
-![](/assets/images/Cloudshell_Terminal.png)
+![](/assets/images/open_terminal.png)
 
 Now it's time to execute our queries using a script. To do this, all we need to do is to get the BigData Query written inside the script and execute our 
 script through the Google Cloud Shell Console, which will help us to connect to the BigQuery service as 
