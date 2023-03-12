@@ -38,9 +38,9 @@ When you've arrived at the BigQuery Sandbox below, you're ready to get going!
 
 Step 1. In a new browser tab, open BigQuery console with https://console.cloud.google.com/bigquery 
 
-![](/assets/images/BigQuery_Console_bd.png)
-
 Step 2. Click View Dataset. If prompted again, click View Dataset again. 
+
+![](/assets/images/Lab1_image_1.png)
 
 The 'bigquery-public-data' dataset appears in the Explorer pane of the console, on the left. 
 
