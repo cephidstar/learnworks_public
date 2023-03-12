@@ -2,16 +2,18 @@
 
 ### **Overview:**
 
-The Introduction to Google Cloud BigQuery course is designed to jumpstart exploration into the BigQuery sandbox, Google's  implimentation of a data warehouse, based on serverless architecture.  It [does this by]  and consider some practical uses for this  
+The Introduction to Google Cloud BigQuery course is designed to jumpstart exploration of BigQuery, the Google Cloud data warehouse. The course directs the learner to 
 
 ### **Duration:** 
 10-15 min 
 
 ### **Learning Objectives:** 
 
-Motivate the learner as to the power of the service 
-Describe some compelling features 
-(optional lab motivation) 
+By the end of this course, learners should be able to:
+* Access the Google Cloud BigQuery sandbox and the Google CloudShell
+* Execute SQL statements in the Cloud BigQuery sandbox or via the bq command-line tool
+* Create parameterized SQL statements 
+* Describe the role that BigQuery might play in the observability domain
 
 ### **Prerequisites:** 
 
@@ -26,8 +28,8 @@ Through guided labs, learners will first connect to the BigQuery Console and exe
 In an optional lab, learners will upload and query sample event data to BigQuery and execute SQL commands  to simulate how BigQuery might be used to manage and analyze observability event data stored in the cloud.   
 
 ### **Intended Audience:**  
-Developers who wish to get started with BigQuery and be introduced to how data warehouses intersect with the observability concepts. 
+Developers and Data Analysts who wish to get started with BigQuery and be introduced to how data warehouses intersect with the observability concepts. 
 
 ### **Considerations:** 
 
-Depending on the status of the learner's Google account and their experience with BigQuery,  learners may experience slight differences in the responses as they sign up for and connect to BigQuery and the Google Cloudshell editor  
+Depending on the status of the learner's Google account and their experience with BigQuery, learners may have differeing experiences as they sign up for and connect to BigQuery and Google Cloudshell.  In order to activate Google Cloudshell, you may need to provide a billing method on your Google account, although you will not be charged for using the service if you remain within the free use limits.
