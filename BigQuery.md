@@ -99,12 +99,11 @@ Step3. Now add the terminal back into the workspace by clicking **Open Terminal*
 
 ![](/assets/images/open_terminal.png)
 
-Now it's time to execute our queries using a script. To do this, all we need to do is to get the BigData Query written inside the script and execute our 
-script through the Google Cloud Shell Console, which will help us to connect to the BigQuery service as 
+You should now see the Explorer panel, with a folder/file directory under your Google account name. If you mouse-over the top of this directory, you should see icons for creating new files and folders. 
 
 ![](/assets/images/new_file.png)
 
-Create a script: and give it the name myfirstbqscript.sh 
+Create a new script file with the name **myfirstbqscript.sh**
 
 Copy the following into the script (in two lines) 
 
@@ -112,23 +111,22 @@ Copy the following into the script (in two lines)
 bq query --use_legacy_sql=false \ 
 'SELECT sum(population) FROM `bigquery-public-data.census_bureau_usa.population_by_zip_2010` WHERE zipcode = "12054"' 
 ~~~~
- 
 
 ! Careful! 
-If you still get an error, make sure the backslash in the first line is recognized. If it is red, 
-delete it and start typing from the last token so that the line looks like this. 
+Make sure the backslash at the end of the first line is recognized. If it is red, 
+
 bq query --use_legacy_sql=false \ 
+
+delete it and retype it starting from preceding characters, until it is recognized. Otherwise your script will not run properly.
+
+On the command line in the bottom panel, run your script with ***$ ./myfirstbqscript.sh***  If prompted, click to authorize use of the bq command. 
  
+Was there a permissions error when you ran it? 
 
-On the command line in the bottom panel, run it with ./myfirstbqscript.sh 
- 
-Was there a permissions error when you ran it? With no other permissions settings entered, each newly defined script file you
-attempt run will require you to open up the permissions. On the command line, execute
+With no other permissions settings entered, each newly defined script file you attempt run will require you to open up the permissions. 
+On the command line, execute ***$ chmod +x myfirstbqscript.sh*** 
 
-chmod +x myfirstbqscript.sh 
-
-Try running the script again. If prompted, click to authorize use of the bq command. 
-You should get a result similar to the one below. 
+Try running the script again. You should get a result similar to the one below. 
 
 ![](/assets/images/bq_sql_output_bd.png)
 
@@ -137,49 +135,44 @@ You should get a result similar to the one below.
 
 When executing SQL from code, it's impractical to have to edit an SQL statement each time you want to produce slightly different results.  
 
-Using the zipcode example from the previous lab:
+Recall the zipcode example from the previous lab:
 
 ~~~~
 'SELECT sum(population) FROM `bigquery-public-data.census_bureau_usa.population_by_zip_2010` WHERE zipcode = "12054"' 
 ~~~~
 
-Suppose you wanted to substitute the literal "12054" in the command with a parameter for which you could supply a value on the command line each time you ran the query script.
-
-Parameterizing SQL statements is central to the technique of writing dynamic SQL, which builds SQL statements dynamically at runtime.
-Dynamic SQL is commonly used in SQL stored procedures.
+If you could substitute the literal "12054" in the command with a parameter, you could supply the script the value on the command line, each time you ran the query. Parameterizing SQL statements is central to the technique of writing dynamic SQL, which builds SQL statements dynamically at runtime. Dynamic SQL is commonly used in SQL stored procedures.
  
 ### Lab: Convert your SQL query into a parameterized query.
 
-Now let's modify our script to allow you to parameterize your SQL statement and receive the values for the parameter from the command line, much as you would for 
-any value you'd like to pass into a script.   
+Modify **myfirstbqscript.sh** to receive the value for the zip code from command line. 
+
+Review: Running your script on the command line with a parameter would look like this:
+
+***$ ./myfirstbqscript.sh 12054***
+
+Within the script, the parameter value is placed in the variable ***$1*** . If you placed multiple parameters on
+the command line, they would be received in the variables $1, $2, $3 etc.
  
-Then as in this case, you could simply execute the script by name on the command line while introducing the searched for string as the 1st parameter, like this. 
+For robustness and readability, you could add this line of code as the first line in your script.
+
+***zipcode=$1***
+
+And instead of ***WHERE zipcode = "12054"'*** you would need to modify your statement as follows:
+
+***WHERE zipcode = "'$zipcode'"'*** 
+
+ Modify ***./myfirstbqscript.sh*** accordingly and run it with a single zipcode parameter.
  
-Now edit your script to look like this: 
-echo $1 
+Just for fun, create another script named ***shakespeare.sh***, to run the same SQL statement we ran in the BigQuery Workspace: 
 
-zipcode=$1 
+~~~
+SELECT word, SUM(word_count) AS count FROM `bigquery-public-data`.samples.shakespeare WHERE word LIKE '%love%' GROUP BY word 
+~~~
 
-bq query --use_legacy_sql=false \ 
+Converting the ***LIKE '%love%'*** clause to use a parameter is a little trickier and not well documented. 
 
- 'SELECT sum(population) FROM `bigquery-public-data.census_bureau_usa.population_by_zip_2010` WHERE zipcode = "'$zipcode'"' 
-
- 
-
-Run it with ./sample.sh 12054 
- 
-Run it with any zipcode you choose. 
- 
-Just for fun, create another script named shakespeare.sh with the following:  [what it does] 
-echo $1 
-
-search_string=$1 
-
-bq query --use_legacy_sql=false \ 
-
- 'SELECT word, SUM(word_count) AS count FROM `bigquery-public-data`.samples.shakespeare WHERE word LIKE "%'$search_string'%" GROUP BY word' 
-
- This syntax for the Shakespeare example is a little trickier. Here you need to use **LIKE "%'$search_string'%"**
+Here you need to use ***LIKE "%'$search_string'%"***
 
 [What's the point] [what could you do next?] 
 
