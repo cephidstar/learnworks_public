@@ -83,49 +83,32 @@ to execute SQL queries, to familiarize you with building tools
 
 
 
-### Lab: Access BigQuery Data through the bq command-line tool  
+### Lab: Access BigQuery Data Through The bq command-line Tool  
 
- 
-
- Before you can use the bq command-line tool, you must use the Google Cloud console to create or select a project.
+Before you can use the bq command-line tool, you must use the Google Cloud console to create or select a project.
  
 In a separate browser tab, use the following URL to open the Cloudshell editor where you'll write your script: https://console.cloud.google.com/bigquery?cloudshell=true 
 
+Wait a few moments as Cloud Shell provisions a Compute Engine virtual machine running a Debian-based Linux operating system for your temporary use.  
+The Cloud Shell terminal should open in a separate panel at the bottom of the screen:
 
-Give it a moment as Cloud Shell provisions a Compute Engine virtual machine running a Debian-based Linux operating system for your temporary use.  
-
+![](/assets/images/Cloudshell_Terminal.png)
  
-
-The Cloud Shell terminal should open in a panel below.  
+But instead of creating, editing and running scripts solely on this bash shell command line, let's make this exercise even 
+easier by using the Google Cloudshell fulscreen editor. 
  
+Just above the terminal, to the right,  Click **Open Editor** and give it a moment to appear. 
+If prompted, Open the Home Workspace, and again, if prompted Activate the shell.
 
-[After the command line appears,  
-But let's make this exercise even easier by using the friendlier  by opening the Cloudshell editor. 
- 
-Just about the terminal, to the right,  Click Open Editor and give it a moment to appear. 
-To launch the editor, click  Open Editor on the toolbar of the Cloud Shell window. 
-
- 
-Open Home Workspace 
-
-Activate the shell 
-
- 
-Now it's time to execute our queries using a script 
- 
-To do this, all we need to do is to get the BigData Query written inside the script and execute our 
-
+Now it's time to execute our queries using a script. To do this, all we need to do is to get the BigData Query written inside the script and execute our 
 script through the Google Cloud Shell Console, which will help us to connect to the BigQuery service as 
 
 ![](/assets/images/bq_query_new_file_bd.png)
 
 Create a script: and give it the name myfirstbqscript.sh 
 
- 
-
 Copy the following into the script (in two lines) 
 
- 
 ~~~~
 bq query --use_legacy_sql=false \ 
 'SELECT sum(population) FROM `bigquery-public-data.census_bureau_usa.population_by_zip_2010` WHERE zipcode = "12054"' 
@@ -133,61 +116,42 @@ bq query --use_legacy_sql=false \
  
 
 ! Careful! 
-
- 
-
-Run it with ./sample.sh 
- 
-
-What happened when you ran it? 
-chmod +x 
-try again 
- 
-
-If prompted to authorize, click authorize. 
- 
 If you still get an error, make sure the backslash in the first line is recognized. If it is red, 
-
 delete it and start typing from the last token so that the line looks like this. 
- 
-
 bq query --use_legacy_sql=false \ 
  
-Now run your query again. You should get a result similar to the one below. 
+
+On the command line in the bottom panel, run it with ./myfirstbqscript.sh 
+ 
+Was there a permissions error when you ran it? With no other permissions settings entered, each newly defined script file you
+attempt run will require you to open up the permissions. On the command line, execute
+
+chmod +x myfirstbqscript.sh 
+
+Try running the script again. If prompted, click to authorize use of the bq command. 
+You should get a result similar to the one below. 
 
 ![](/assets/images/bq_sql_output_bd.png)
 
  
-## Converting SQL queries to parameterized queries 
+## Converting SQL Queries to Parameterized Queries 
 
+When executing SQL from code, it's impractical to have to edit an SQL statement each time you want to produce different results.  
+
+Using the zipcode example from the previous lab:
+
+~~~~
+'SELECT sum(population) FROM `bigquery-public-data.census_bureau_usa.population_by_zip_2010` WHERE zipcode = "12054"' 
+~~~~
+
+Suppose you wanted to substitute the literal "12054" in the command with a parameter for which you could supply a value on the command line each time you ran the query script.
+
+Parameterizing SQL statements is central to the technique of writing what is called dynamic SQL, which builds SQL statements dynamically at runtime.
+Dynamic SQL is commonly used in SQL stored procedures.
  
+### Lab: Convert your SQL query into a parameterized query.
 
-(Text) Parameterized SQL 
-
- 
-
-[The power and importance of parameterized queries] 
-
- 
-
-Suppose you wanted to substitute the literal '%love%'  in the command with a parameter that you could supply each time you run the query, say in a pop-up dialogue. In this form, the type of SQL is called dynamic SQL. 
- 
-In some programming contexts, the ? symbol can be used as a placeholder for an SQL parameter, however in BigQuery UI this does not work. 
-
- 
-
-Although you can create a dynamic SQL statement in BigQuery, it's quite complex.  
- 
- 
-
-### Lab: Convert your SQL queries to parameterized queries, You will boost the power of your queries to dynamically modify query targets. 
-
- 
-
-Now let's modify our script to allow you to parameterize your SQL statement and 
-
-receive the values for the parameter from the command line, much as you would for 
-
+Now let's modify our script to allow you to parameterize your SQL statement and receive the values for the parameter from the command line, much as you would for 
 any value you'd like to pass into a script.   
  
 Then as in this case, you could simply execute the script by name on the command line while introducing the searched for string as the 1st parameter, like this. 
@@ -216,11 +180,11 @@ bq query --use_legacy_sql=false \
 
  'SELECT word, SUM(word_count) AS count FROM `bigquery-public-data`.samples.shakespeare WHERE word LIKE "%'$search_string'%" GROUP BY word' 
 
- 
+ This syntax for the Shakespeare example is a little trickier. Here you need to use **LIKE "%'$search_string'%"**
 
 [What's the point] [what could you do next?] 
 
-[Stuf to try:  Write script-driven BigQuery SQL that accepts multiple parameters, but also elegantly  
+[Stuff to try:  Write script-driven BigQuery SQL that accepts multiple parameters, but also elegantly  
 
 operates when none or some of the parameters are supplied on the command line (or through a call). 
 
