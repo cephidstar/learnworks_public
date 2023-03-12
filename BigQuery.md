@@ -30,10 +30,10 @@ Step 2. Click View Dataset. If prompted again, click View Dataset again.
 
 The 'bigquery-public-data' dataset appears in the Explorer pane of the console. 
 
-![](/assets/images/BQ_Explorer_bd.png)
-
 Step 3. Expand the bigquery-public-data dataset. Shown in the Explorer pane are sample table groups that you can practice upon.
 Each dataset contains one or more tables. 
+
+![](/assets/images/BQ_Explorer_bd.png)
 
 Step 4. Scroll down to and expand the **census_bureau_usa** table group. 
  
@@ -43,26 +43,26 @@ Take a moment to read the field names and definitions. Let's now run some querie
 Step 6. Above the fields list, click **Query** and select **In a new tab**.  The workspace opens with a simple, incomplete SQL SELECT statement. 
 The SELECT clause is shown in error, because you need to supply the fields to retrieve. 
  
-Enter an asterisk * between the SELECT and FROM clauses to return all fields, making no other changes to limit the result set to 1000 
+Enter an asterisk * between the SELECT and FROM clauses to return all fields, making no other changes to the statement, as shown.
 
 SELECT * FROM `bigquery-public-data.census_bureau_usa.population_by_zip_2010` LIMIT 1000 
 
-Step 7. Click the RUN command. The Query results should appear in the a panel below the statement. 
+Step 7. Click the RUN command. The Query results should appear in the a panel below the statement. The first 1000 records in the **population_by_zip_2010** table.
  
 Step 8. Modify the statement as shown below to retrieve the population for a specific zip code. You can copy/paste
-statements into the query tab.
+and overwrite statements into the query tab.
 
 SELECT sum(population) FROM `bigquery-public-data.census_bureau_usa.population_by_zip_2010` WHERE zipcode = '12054'
 
-Step 9. Run a simple query in BigQuery to retrieve Shakespeare data from the **samples.shakespeare** table, which contains the text
+Try is again with your hometown zipcode.
+
+Step 9. Run this query in BigQuery to retrieve Shakespeare data from the **samples.shakespeare** table, which contains the text
 of the entire works of Shakespeare.
 
 SELECT word, SUM(word_count) AS count FROM `bigquery-public-data`.samples.shakespeare WHERE word LIKE '%love%' GROUP BY word 
 
 
 ## Accessing BigQuery Data Outside the Sandbox
-
- 
 
 BigQuery is more than just sandbox (cloud console), an interactive workspace where you can query data, import, analyze, build data. BigQuery serves a data repository that can be accessed  by other cloud services and by applications regardless of how they are deployed and   
   
@@ -74,18 +74,13 @@ Through Python
 
 or using scripts in the CloudShell using the bq command-line too.
   
-
 Accessing BigQuery in programming affords us more flexibility in constructing our queries, using variables and parameters, or any other programming constructs (e.g. loops) you require.  
-
- 
 
 Fortunately, Google Cloud makes connecting to BigQuery [and scripting] externally, quite easy by providing [  Cloudshell ] and use bash shell scripts 
 
 to execute SQL queries, to familiarize you with building tools 
 
- 
 
- 
 
 ### Lab: Access BigQuery Data through the bq command-line tool  
 
