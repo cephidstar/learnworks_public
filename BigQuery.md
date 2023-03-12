@@ -28,7 +28,7 @@ Step 1. In a new browser tab, open BigQuery console with https://console.cloud.g
 
 Step 2. Click View Dataset. If prompted again, click View Dataset again. 
 
-The 'bigquery-public-data' dataset appears in the Explorer pane of the console. 
+The 'bigquery-public-data' dataset appears in the Explorer pane of the console, on the left. 
 
 ![](/assets/images/BigQuery_Public_dataset.png)
 
