@@ -23,7 +23,7 @@ By the end of this course, learners should be able to:
 
 ### **Course Activities:** 
 
-Through guided labs, learners will first connect to the BigQuery Console and execute SQL commands on preloaded sample table data.  They will then connect to BigQuery through the BigQuery command-line tool and use shell scripts to execute SQL queries, to familiarize them with programmtaic approaches to BigQuery data access and management. The final lab presents a practical [   ] to convert your SQL queries to parameterized queries, You will boost the power of your queries to dynamically modify query targets.  
+Through guided labs, learners will first connect to the BigQuery Console and execute SQL commands on preloaded sample table data.  They'll then enable Google Cloud Shell and the bq command-line tool in order to devise shell scripts to execute SQL queries, to familiarize them with programmtaic approaches to BigQuery data access and management. The final section describes the importance of dynamic SQL and provides a lab for learners to practice parameterizing SQL queries.
 
 In an optional lab, learners will upload and query sample event data to BigQuery and execute SQL commands  to simulate how BigQuery might be used to manage and analyze observability event data stored in the cloud.   
 
