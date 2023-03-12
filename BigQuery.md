@@ -2,96 +2,63 @@
 
 ## Introduction
 
-BigQuery is Google Cloud's enterprise data warehouse for managing and analyzing data. It is built upon a serverless architecture and requires no infrastructure management. BigQuery lets you use standard SQL queries to access and manage data.  
+BigQuery is Google Cloud's enterprise data warehouse for managing and analyzing data. Built upon a serverless architecture, BigQuery requires no infrastructure management. BigQuery data is stored in table/column format and is accessed and managed though standard SQL by which there are no restrictions against the full range of language capabilities, including updating data and creating or deleting tables. 
 
-From an observability perspective, data warehouses should be monitored for performance and availability, just like any other service your application uses. BigQuery supports monitoring by providing built-in performance metrics around the management and analysis operations you perform on your data. 
+From an observability perspective, BigQuery supports monitoring by providing built-in performance metrics around the management and analysis operations you perform on your data.
 
-BigQuery can also be used to store observability data, such as event logs. [read to gain insight]  [Unique analyze 'in place' feature].  
+BigQuery is particularly suited for storing and processing observability data, such as event data produced by application performance management systems. BigQuery is a highly scalable and features a data analysis engine that can handle terabytes of data in seconds and petabytes of data in minutes. It is flexible in terms of storage and analysis options, allowing users to store and analyze data within BigQuery or assess it where it already exists. It provides provides powerful tools like BigQuery ML and BI Engine for analyzing and understanding data.
 
-In this course, you'll become familiar with BigQuery by logging into the BigQuery
-Sandbox and through and hands-on practice accessing BigQuery data using SQL.  
-
-We will start  
-From there we talk about  
-and how important it is to 
-Next, we look at  
-. After that, we look at 
- Finally, we tackle  
+In this course, you'll become familiar with BigQuery through hands-on practice, by executing SQL queries in the BigQuery
+Sandbox and though the BigQuery command-line tool.
  
-At the end of this course, you'll be ready experiement on your own, using the many resources available ...
+At the end of this course, you'll be ready experiment on your own, and with programming, and you'll be prepared to using the many resources available ...
+
 
 ## Connecting to the BigQuery Console 
-
-[Text:]
-
-### Lab: Connect to the BigQuery Console and execute SQL commands on preloaded sample table data, using the BigQuery sandbox. 
-
- 
 
 The BigQuery sandbox is available to anyone with a Google Account at no cost. 
 Here's how [enable access so you can finish the course]  to get started. 
 
- 
+### Lab: Connect to the BigQuery Console and execute SQL commands on preloaded sample table data, using the BigQuery sandbox. 
 
-Open [fresh in new window] the BigQuery console with https://console.cloud.google.com/bigquery 
+
+Step 1. In a new browser tab, open BigQuery console with https://console.cloud.google.com/bigquery 
 
 ![](/assets/images/BigQuery_Console_bd.png)
 
-Click View Dataset 
-
-If prompted again, click View Dataset again. 
+Step 2. Click View Dataset. If prompted again, click View Dataset again. 
 
 The 'bigquery-public-data' dataset appears in the Explorer pane of the console. 
 
 ![](/assets/images/BQ_Explorer_bd.png)
 
- 
+Step 3. Expand the bigquery-public-data dataset. Shown in the Explorer pane are sample table groups that you can practice upon.
+Each dataset contains one or more tables. 
 
+Step 4. Scroll down to and expand the **census_bureau_usa** table group. 
  
+Step 5. Click the **population_by_zip_2010** table to open it in the console workspace.  Here you'll see the list of fields that comprise the table.  
+Take a moment to read the field names and definitions. Let's now run some queries on it.  
 
-Expand bigquery-public-data.  Then scroll down to and expand the census_bureau_usa grouping. 
+Step 6. Above the fields list, click **Query** and select **In a new tab**.  The workspace opens with a simple, incomplete SQL SELECT statement. 
+The SELECT clause is shown in error, because you need to supply the fields to retrieve. 
  
-Shown in the Explorer pane are sample datasets that you can practice upon, each dataset contains one or more tables. 
- 
-Click the population_by_zip_2010 table to open it in the console workspace.  
-
- 
-
-Here you'll see the list of fields that make up the table.  Take a moment to read the field names and definitions. Let's now run some queries on it.  
-
- 
-
-Above the fields list, click Query > In a new tab.  The workspace opens with a simple SELECT statement. This select clause is shown in error, because you need to supply the fields to retrieve. 
- 
-Enter a '*' between the SELECT and FROM clauses to return all fields, making no other changes to limit the result set to 1000 
+Enter an asterisk * between the SELECT and FROM clauses to return all fields, making no other changes to limit the result set to 1000 
 
 SELECT * FROM `bigquery-public-data.census_bureau_usa.population_by_zip_2010` LIMIT 1000 
 
+Step 7. Click the RUN command. The Query results should appear in the a panel below the statement. 
  
+Step 8. Modify the statement as shown below to retrieve the population for a specific zip code. You can copy/paste
+statements into the query tab.
 
-Click the RUN command. The Query results should appear in the a panel below the statement. 
- 
+SELECT sum(population) FROM `bigquery-public-data.census_bureau_usa.population_by_zip_2010` WHERE zipcode = '12054'
 
-Now try out the following statements: 
-
-Modify the statement to show the data for you .zip code 
-
-SELECT sum(population) FROM `bigquery-public-data.census_bureau_usa.population_by_zip_2010` WHERE zipcode = '12054' LIMIT 1000 
-
- 
-
-SELECT sum(population) FROM `bigquery-public-data.census_bureau_usa.population_by_zip_2010` WHERE zipcode = '12054' LIMIT 1000 
-
- 
- 
-Run a simple query in BigQuery to retrieve Shakespeare data  
+Step 9. Run a simple query in BigQuery to retrieve Shakespeare data from the **samples.shakespeare** table, which contains the text
+of the entire works of Shakespeare.
 
 SELECT word, SUM(word_count) AS count FROM `bigquery-public-data`.samples.shakespeare WHERE word LIKE '%love%' GROUP BY word 
 
- 
-
- 
- 
 
 ## Accessing BigQuery Data Outside the Sandbox
 
