@@ -145,7 +145,7 @@ If you could substitute the literal "12054" in the command with a parameter, you
  
 ### Lab: Convert your SQL query into a parameterized query.
 
-###Part I###
+#### Part I ####
 
 Modify **myfirstbqscript.sh** to receive the value for the zip code from command line. 
 
@@ -166,7 +166,7 @@ And instead of ***WHERE zipcode = "12054"'*** you would need to modify that clau
 
 Step x. Modify ***./myfirstbqscript.sh*** accordingly and run it with a single zipcode parameter.
 
-###Part II###
+#### Part II ####
  
 Just for fun, create another script named ***shakespeare.sh***, to run the same SQL statement we ran in the BigQuery Workspace: 
 
@@ -178,57 +178,39 @@ Converting the ***LIKE '%love%'*** clause to use a parameter is a little trickie
 
 Here you need to use ***LIKE "%'$search_string'%"***
 
-[What's the point] [what could you do next?] 
+Give it a try, and enjoy your Shakespeare data mining!
 
-Stuff to try:  Write script-driven BigQuery SQL that accepts multiple parameters, but also elegantly  
+
+ 
+
+## Other Things to Try
+
+Write script-driven BigQuery SQL that accepts multiple parameters, but also elegantly  
 
 operates when none or some of the parameters are supplied on the command line (or through a call). 
 
 Formulate the SQL statement so that when parameters are missing, it finds a workable default behavior. 
 
- 
-
-## (Optional) 4. Upload and query sample event data to BigQuery 
 
 BigQuery is particularly suited for storing and analyzing observability data
 
 (Optional Lab) Upload and query sample event data to BigQuery and execute SQL commands  
 to simulate how BigQuery might be used to manage and analyze observability event data stored in the cloud.  
 
- 
+ Now lets apply our script to some event data 
 
-Now lets apply our script to some event data 
+ upload the table 
 
- 
+ Type the SQL into the sandbox 
 
-upload the table 
+ Create a new script with the same SQL 
 
- 
-
-Type the SQL into the sandbox 
+ Parameterize it 
 
  
+### Summary 
 
-Create a new script with the same SQL 
 
- 
 
-Parameterize it 
 
- 
 
-[Review of what we did and how we met the objectives] 
-
- 
-
-[Things for you to try] 
-
- 
-
-[References]  
-
- 
-
- 
-
-Summary 
