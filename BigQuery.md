@@ -77,7 +77,7 @@ SELECT word, SUM(word_count) AS count FROM `bigquery-public-data`.samples.shakes
 
 ## Accessing BigQuery Data Outside the Sandbox
 
-BigQuery is more than just sandbox (cloud console), an interactive workspace where you can query data, import, analyze, and shape data. BigQuery serves a data repository used by enterprise cloud services and applications, regardless of how they are deployed.  
+BigQuery is more than just an interactive workspace where you can query, import, analyze, and shape data with SQL. BigQuery serves as a data repository used by enterprise cloud services and applications, regardless of how they are deployed.  
   
 BigQuery provides APIs for use in Go, Java, Node.js, PHP, Python, C#, and Ruby code. Accessing and managing BigQuery data through code boosts the flexibility and power of SQL queries by introducing parameters, variables, logic and functions, or any other programming constructs (e.g. loops) you require.
 
