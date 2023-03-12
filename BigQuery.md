@@ -55,9 +55,11 @@ Take a moment to review the field names and definitions. Let's now run some quer
 
 Step 5. Just above the fields list, open the ![](/assets/images/Query_dropdown.png) menu and select **In a new tab**.  The workspace opens with a simple, incomplete SQL SELECT statement. The SELECT clause is shown in error, because you need to supply to the clause, the fields to retrieve. 
  
-Select all of the table fields by enetering an asterisk * between the SELECT and FROM clauses, making no other changes to the statement. It should look as shown.
+Select all of the table fields by entering an asterisk * between the SELECT and FROM clauses, making no other changes to the statement. It should look as shown.
 
+~~~
 SELECT * FROM `bigquery-public-data.census_bureau_usa.population_by_zip_2010` LIMIT 1000 
+~~~
 
 Step 6. Click the RUN command. The Query results should appear in the a panel below the statement. The first 1000 records in the **population_by_zip_2010** table.
  
@@ -79,24 +81,20 @@ BigQuery is more than just sandbox (cloud console), an interactive workspace whe
   
 BigQuery provides APIs for use in Go, Java, Node.js, PHP, Python, C#, and Ruby code. Accessing and managing BigQuery data through code boosts the flexibility and power of SQL queries by introducing parameters, variables, logic and functions, or any other programming constructs (e.g. loops) you require.
 
-Thankfully, Google Cloud makes it easy to connect to BigQuery externally and experiment with coded SQL, through **Google CloudShell**, the **bq command-line tool**, and the **CloudShell Editor**. Let's practice using these tools.
+Thankfully, Google Cloud makes it easy to connect to BigQuery externally and experiment with coded SQL, through **Google Cloud Shell**, the **bq command-line tool**, and the **CloudShell Editor**. Let's practice using these tools.
 
-### Lab: Access BigQuery Data Through Google CloudShell and The bq command-line Tool  
+### Lab: Access BigQuery Data Through Google Cloud Shell
 
-Before you can use the bq command-line tool, you must use the Google Cloud console to create or select a project.
- 
-In a separate browser tab, use the following URL to open the Cloudshell editor where you'll write your script: https://console.cloud.google.com/bigquery?cloudshell=true 
+Accessing Google Cloud Shell in a separate browser tab, using the following URL https://console.cloud.google.com/bigquery?cloudshell=true .
 
 Wait a few moments as Cloud Shell provisions a Compute Engine virtual machine running a Debian-based Linux operating system for your temporary use.  
-The Cloud Shell terminal should open in a separate panel at the bottom of the screen:
+The Cloud Shell terminal should open in a panel at the bottom of the screen:
 
 ![](/assets/images/Cloudshell_Terminal.png)
  
-But instead of creating, editing and running scripts solely on this bash shell command line, let's make this exercise even 
-easier by using the Google Cloudshell fulscreen editor. 
+But instead of creating, editing and running scripts solely on this bash shell command line, let's make this exercise even easier by using the Google Cloudshell Editor. 
  
-Just above the terminal, to the right,  Click **Open Editor** and give it a moment to appear. 
-If prompted, Open the Home Workspace, and again, if prompted Activate the shell.
+Just above the terminal, to the right,  Click **Open Editor** and give it a moment to appear. If prompted, open the Home Workspace, and again, if prompted Activate the shell.
 
 Then add the terminal back in by clicking terminal.
 
