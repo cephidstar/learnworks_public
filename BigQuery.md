@@ -210,7 +210,6 @@ to simulate how BigQuery might be used to manage and analyze observability event
  
 ### Summary 
 
-
-
+### Resources
 
 
