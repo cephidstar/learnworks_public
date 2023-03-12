@@ -6,13 +6,13 @@ BigQuery is Google Cloud's enterprise data warehouse, built upon a serverless ar
 
 From an observability perspective, BigQuery is particularly suited for storing and analyzing observability data, such as event data produced by performance monitoring applications. BigQuery is highly scalable and it includes powerful features such as a high bandwidth data analysis engine, supported by machine learning. BigQuery also supports the monitoring of its own performance, by computing and storing metrics around the operations executed upon the data it houses. 
 
-In this course, you'll become familiar with BigQuery through hands-on practice, by executing SQL queries in both the BigQuery Sandbox and through the BigQuery command-line tool.
+In this course, you'll become familiar with BigQuery through hands-on practice, by executing SQL queries in both the BigQuery SQL Workspace and through the BigQuery command-line tool.
  
-By the the end of this course, you'll have a working knowledge of BigQuery, your BigQuery Sandbox and Linux command line tool will be up and running, and you'll be equipped to continue experimenting with SQL on your own, using the many BigQuery resources that Google and other practitioners provide.
+By the the end of this course, you'll have a working knowledge of BigQuery, your BigQuery SQL Workspace and Linux command line tool will be up and running, and you'll be equipped to continue experimenting with SQL on your own, using the many BigQuery resources that Google and other practitioners provide.
 
 ## Connecting to the BigQuery Sandbox
 
-The BigQuery sandbox is available to anyone with a Google Account at no cost. However Google requires
+The BigQuery Workspace is available to anyone with a Google Account at no cost. However Google requires
 you to have set up a payment method, for at minimum, verification purposes.
 
 If you already have a Google account with a payment method defined, the BigQuery setup will consist
@@ -21,7 +21,7 @@ of just a few steps. Otherwise, they'll be just a few more steps for entering an
 To get started, go to: https://cloud.google.com/bigquery . If you're already signed up to use BigQuery, then you'll
 be in the right place and you can skip to the lab, just after this section. 
 
-Other wise, click either of the getting started buttons you'll find on the welcome/initialization screen.
+Otherwise, click either of the **getting started** buttons you'll find on the welcome/initialization screen.
 
 ![](/assets/images/sign_up_1b.png)
 
@@ -29,76 +29,59 @@ After you've completed the signup steps, you'll be taken to the Google Cloud Con
 
 ![](/assets/images/sign_up_2.png)
 
-When you've arrived at the BigQuery Sandbox below, you're ready to get going!
+When you've arrived at the BigQuery Workspace shown below, you're ready to get going!
 
 ![](/assets/images/BigQuery_Console_bd.png)
 
-### Lab: Connect to the BigQuery Console and execute SQL commands on preloaded sample table data, using the BigQuery sandbox. 
+### Lab: Execute SQL Commands in the BigQuery Workspace
 
+Step 1. You should be logged into BigQuery Workspace, otherwise open it in a new browser tab with https://console.cloud.google.com/bigquery .
 
-Step 1. In a new browser tab, open BigQuery console with https://console.cloud.google.com/bigquery 
-
-Step 2. Click View Dataset. If prompted again, click View Dataset again. 
+Step 2. BigQuery provides sample 'Public Trends' data in a special dataset. Within the initial Workspace banner, Click VIEW DATASET. 
 
 ![](/assets/images/Lab1_image_1.png)
 
-The 'bigquery-public-data' dataset appears in the Explorer pane of the console, on the left. 
+If prompted again in another pop-up window, click View Dataset again. 
 
-![](/assets/images/BigQuery_Public_dataset.png)
-
-Step 3. Expand the bigquery-public-data dataset. Shown in the Explorer pane are sample table groups that you can practice upon.
-Each dataset contains one or more tables. 
+The **bigquery-public-data** dataset appears in the Explorer pane of the console, on the left, just below your personal dataset, which will be issued a randomly generated name such as 'beaming-storm-379618'.
 
 ![](/assets/images/BQ_Explorer_bd.png)
 
-Step 4. Scroll down to and expand the **census_bureau_usa** table group. 
+Step 3. Expand the bigquery-public-data dataset in the Explorer pane to reveal the sample table groups that you can practice upon.
+Each dataset contains one or more tables. Scroll down to and expand the **census_bureau_usa** table group. 
  
-Step 5. Click the **population_by_zip_2010** table to open it in the console workspace.  Here you'll see the list of fields that comprise the table.  
-Take a moment to read the field names and definitions. Let's now run some queries on it.  
+Step 4. Click the **population_by_zip_2010** table to open it in the workspace to the right.  Here you'll see the list of fields that comprise the table.  
+Take a moment to review the field names and definitions. Let's now run some queries on it.  
 
-Step 6. Just above the fields list, open the ![](/assets/images/Query_dropdown.png) menu and select **In a new tab**.  The workspace opens with a simple, incomplete SQL SELECT statement. The SELECT clause is shown in error, because you need to supply the fields to retrieve. 
+Step 5. Just above the fields list, open the ![](/assets/images/Query_dropdown.png) menu and select **In a new tab**.  The workspace opens with a simple, incomplete SQL SELECT statement. The SELECT clause is shown in error, because you need to supply to the clause, the fields to retrieve. 
  
-Enter an asterisk * between the SELECT and FROM clauses to return all fields, making no other changes to the statement. It should look as shown.
+Select all of the table fields by enetering an asterisk * between the SELECT and FROM clauses, making no other changes to the statement. It should look as shown.
 
 SELECT * FROM `bigquery-public-data.census_bureau_usa.population_by_zip_2010` LIMIT 1000 
 
-Step 7. Click the RUN command. The Query results should appear in the a panel below the statement. The first 1000 records in the **population_by_zip_2010** table.
+Step 6. Click the RUN command. The Query results should appear in the a panel below the statement. The first 1000 records in the **population_by_zip_2010** table.
  
-Step 8. Modify the statement as shown below to retrieve the population for a specific zip code. You can copy/paste
-and overwrite statements into the query tab.
+Step 7. Modify the statement as shown below and re-run it to retrieve the population for a specific zip code. You can copy/paste
+and overwrite statements into the query workspace.
 
 SELECT sum(population) FROM `bigquery-public-data.census_bureau_usa.population_by_zip_2010` WHERE zipcode = '12054'
 
-Try this query again with your hometown zipcode.
+Then try this query again with your hometown zipcode.
 
-Step 9. Run this query in BigQuery to retrieve Shakespeare data from the **samples.shakespeare** table, which contains the text
-of the entire works of Shakespeare.
+Step 8. Just for fun, let's query the **samples.shakespeare** table, which contains the text of the entire works of Shakespeare.
+The following query counts the number of distinct phrases in Shakespeare's work where the supplied string is found.
 
-The following query counts the number of distinct phraases in Shakespeare's work where the supplied string is found.
 SELECT word, SUM(word_count) AS count FROM `bigquery-public-data`.samples.shakespeare WHERE word LIKE '%love%' GROUP BY word 
-
 
 ## Accessing BigQuery Data Outside the Sandbox
 
-BigQuery is more than just sandbox (cloud console), an interactive workspace where you can query data, import, analyze, build data. BigQuery serves a data repository that can be accessed  by other cloud services and by applications regardless of how they are deployed and   
+BigQuery is more than just sandbox (cloud console), an interactive workspace where you can query data, import, analyze, and shape data. BigQuery serves a data repository used by enterprise cloud services and applications, regardless of how they are deployed.  
   
-You can query the tables and data housed in BigQuery through the sandbox  
+BigQuery provides APIs for use in Go, Java, Node.js, PHP, Python, C#, and Ruby code. Accessing and managing BigQuery data through code boosts the flexibility and power of SQL queries by introducing parameters, variables, logic and functions, or any other programming constructs (e.g. loops) you require.
 
-Through the BigQuery API, available for use in Go, Java, Node.js, PHP, Python C# Ruby   
+Thankfully, Google Cloud makes it easy to connect to BigQuery externally and experiment with coded SQL, through **Google CloudShell**, the **bq command-line tool**, and the **CloudShell Editor**. Let's practice using these tools.
 
-Through Python  
-
-or using scripts in the CloudShell using the bq command-line too.
-  
-Accessing BigQuery in programming affords us more flexibility in constructing our queries, using variables and parameters, or any other programming constructs (e.g. loops) you require.  
-
-Fortunately, Google Cloud makes connecting to BigQuery [and scripting] externally, quite easy by providing [  Cloudshell ] and use bash shell scripts 
-
-to execute SQL queries, to familiarize you with building tools 
-
-
-
-### Lab: Access BigQuery Data Through The bq command-line Tool  
+### Lab: Access BigQuery Data Through Google CloudShell and The bq command-line Tool  
 
 Before you can use the bq command-line tool, you must use the Google Cloud console to create or select a project.
  
