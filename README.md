@@ -32,4 +32,4 @@ Developers and Data Analysts who wish to get started with BigQuery and be introd
 
 ### **Considerations:** 
 
-Depending on the status of the learner's Google account and their experience with BigQuery, learners may have differeing experiences as they sign up for and connect to BigQuery and Google Cloudshell.  In order to activate Google Cloudshell, you may need to provide a billing method on your Google account, although you will not be charged for using the service if you remain within the free use limits.
+Depending on the status of the learner's Google account and their experience with BigQuery, learners may have differing experiences as they sign up for and connect to BigQuery and Google Cloudshell.  In order to activate Google Cloudshell, you may need to provide a billing method on your Google account, although you will not be charged for using the service if you remain within the free use limits.
